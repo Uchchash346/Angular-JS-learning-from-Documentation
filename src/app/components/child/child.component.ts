@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -10,6 +10,16 @@ export class ChildComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges triggered', changes);
+    if (!changes['userName'].isFirstChange()) {
+      if (changes['userName'].currentValue === 'Chris') {
+        this.userName = 'Hello' + this.userName;
+      } else{
+        this.userName = changes['userName'].previousValue;
+      }
+    }
   }
 
 }

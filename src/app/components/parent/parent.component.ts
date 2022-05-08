@@ -11,10 +11,10 @@ export class ParentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  userName = 'Omar';
+  userName = 'Maria';
 
   updateUser() {
-    this.userName = 'Uchchash';
+    this.userName = 'Chris';
   }
 
 }
